@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#
+if Section.count == 0
+  %w(Breakfast Lunch Dinner Drinks).each do |name|
+    Section.create!(name: name)
+  end
+else
+  puts 'Data existed'
+end
+
