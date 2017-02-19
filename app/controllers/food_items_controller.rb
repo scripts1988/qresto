@@ -62,9 +62,9 @@ class FoodItemsController < ApplicationController
   end
 
   def search
-    @foods = FoodItem.all
+    @foods_search = FoodItem.all
     if params[:term]
-      @foods = FoodItem.search(params[:term])
+      @foods_search = FoodItem.search(params[:term])
     end
   end
 
