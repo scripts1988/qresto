@@ -4,9 +4,9 @@
 
 Submitted by: **Nguyen Thanh Quan**
 
-Time spent: **XX** hours spent in total
+Time spent: **16** hours spent in total
 
-URL: **heroku-app-url**
+URL: **https://qresto-hw1.herokuapp.com/l**
 
 ## User Stories
 
@@ -58,7 +58,7 @@ The following **known issues**:
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](path-to-your-GIF-file)
+![Video Walkthrough](./walkthrough.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -68,7 +68,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name]
+    Copyright [2017] [Nguyen Thanh Quan]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
