@@ -5,6 +5,10 @@ class FoodItem < ApplicationRecord
   has_many :orders
 
   def image_url_or_default
-      imgage_url || "https://cdn.pixabay.com/photo/2017/02/15/10/39/salad-2068220_1280.jpg"
+    if imgage_url.present?
+     imgage_url
+    else
+      "http://loremflickr.com/320/240/food"
+    end
   end
 end
