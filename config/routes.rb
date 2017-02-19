@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   resources :orders
-  resources :food_items
+  resources :food_items do
+    collection do
+      get :search, :action => 'search_foods', :as => 'search_foods'
+      get 'search/:q', :action => 'search', :as => 'search'
+    end
+  end
   get 'contact_us' => 'home#contact_us'
   get 'menu' => 'home#menu'
 

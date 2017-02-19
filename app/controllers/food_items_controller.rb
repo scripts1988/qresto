@@ -61,6 +61,17 @@ class FoodItemsController < ApplicationController
     end
   end
 
+  def search
+    @foods = FoodItem.all
+    if params[:term]
+      @foods = FoodItem.search(params[:term])
+    end
+  end
+
+  def search_foods
+    redirect_to search_food_items_path(params[:q])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_food_item

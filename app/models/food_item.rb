@@ -4,6 +4,10 @@ class FoodItem < ApplicationRecord
   validates :price, :numericality => { :greater_than_or_equal_to => 0 } 
   has_many :orders
 
+  def self.search(term)
+    where('name LIKE ?', "%#{term}%")
+  end
+
   def image_url_or_default
     if imgage_url.present?
      imgage_url
