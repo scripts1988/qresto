@@ -11,6 +11,13 @@
 </style>
 </head>
 
+<% if notice != '' %>
+  <% if notice %>
+    <div class="alert alert-success"><%= notice %></div>
+  <% end %>
+<% end %>
+
+
 <h1>Menu</h1>
 
 <div class="btn-group">

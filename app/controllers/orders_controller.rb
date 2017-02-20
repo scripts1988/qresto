@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
     @order = @item.orders.build order_params
     
     if @order.save
-      redirect_to menu_path , flash: {success: "Thanks for your order!"}
+      redirect_to menu_path , notice: "Thanks for your order!"
     else
       render 'new'
     end
