@@ -23,6 +23,20 @@
 <br>
 
 <% if @current_section %>
+  <div class="card card-block">
+		<%= form_tag nil, {:method => :get} do %>
+			<div class='form-inline'>
+				<%= select_tag :sort_column, options_for_select(['Name', 'Price']), class: 'form-control mr-sm-2' %>
+				<%= select_tag :sort_direction, options_for_select(['Asc', 'Desc']), class: 'form-control mr-sm-2' %>
+				<%= submit_tag 'Sort', class: 'btn btn-secondary' %>
+        <%= hidden_field_tag :section_id , @current_section.id %>
+			</div>
+		<% end %>	
+  </div>
+
+	<br>
+	<br>
+
   <table class="table">
     <thead>
       <tr>
@@ -32,7 +46,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @current_section.food_items.each do |item| %>
+      <% @foods.each do |item| %>
         <tr>
           <td><%= item.name %></td>
           <td><%= number_to_currency item.price %></td>
