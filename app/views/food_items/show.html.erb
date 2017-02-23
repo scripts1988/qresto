@@ -1,29 +1,41 @@
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @food_item.name %>
-</p>
+<div class="container">
 
-<p>
-  <strong>Description:</strong>
-  <%= @food_item.description %>
-</p>
+<% if notice %>
 
-<p>
-  <strong>Price:</strong>
-  <%= @food_item.price %>
-</p>
+  <br>
 
-<p>
-  <strong>Section:</strong>
-  <%= @food_item.section %>
-</p>
+  <%= link_to 'Edit', edit_food_item_path(@food_item) %> |
+  <%= link_to 'Back', food_items_path %>
 
-<p>
-  <strong>Imgage url:</strong>
-  <%= @food_item.imgage_url %>
-</p>
+<% else %>
+  <div class="splash-box" style="background:flex-wrapb"><%= image_tag @food_item.image_url_or_default, style: 'height:auto%;width:100%;' %>
+  </div>
+  <hr/>
 
-<%= link_to 'Edit', edit_food_item_path(@food_item) %> |
-<%= link_to 'Back', food_items_path %>
+  <h4>
+    <%= @food_item.name %>
+  </h4>
+  <br>
+  <p>
+    <%= @food_item.description %>
+
+    <br>
+    <hr/>
+    <strong>
+    Price:
+    <%= number_to_currency @food_item.price %>
+    <br>
+    Menu:
+    <%= @food_item.section %>
+    </strong>
+  </p>
+
+
+
+<% end %>
+</div>
+
+
