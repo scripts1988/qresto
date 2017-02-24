@@ -1,9 +1,13 @@
 <head>
 <style type="text/css">
-.card {
-   color: #000; /* makes the link color black */
-   text-decoration:none; /* Removed underline */
+
+.menu_bg {
+  background-repeat:no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
 }
+
 </style>
 </head>
 
@@ -15,7 +19,7 @@
 <% end %>
 
 
-<h1>Menu</h1>
+<h1 style="color: orange">Menu</h1>
 
 <div class="btn-group">
   <% @sections.each do |section| %>
@@ -61,27 +65,39 @@
     </tbody>
   </table>
 <% else %>
-  <div class="card-deck">
-	  <% @foods.each do |food_item| %>
+  <body background="<%= image_url('foods.jpeg') %>" class="menu_bg">
+    <div class="card-columns">
+      <% @foods.each do |food_item| %>
+        <div class="card card-dark">
+          <!--Card image-->
+          <div class="view overlay hm-white-slight">
+            <img src="<%= food_item.image_url_or_default %>" class="img-fluid">
+            <a>
+              <div class="mask waves-effect waves-light"></div>
+            </a>
+          </div>
 
-  		<a class="card" href="<%= food_item_path(id: food_item.id) %>">
-    		<img class="card-img-top">
-          <%= image_tag food_item.image_url_or_default, style: 'max-height:100px' %>
-        </img>
 
+          <!--Card content-->
+          <div class="card-block">
+            <!--Social shares button-->
+            <a class="activator"><i class="fa fa-share-alt"></i></a>
+              <!--Title-->
+              <h4 class="card-title"><%= food_item.name %></h4>
+              <hr>
+              <!--Text-->
+              <a href="<%= food_item_path(id: food_item.id) %>" class="d-flex flex-row-reverse"><h5 class="waves-effect waves-light p-2">Read more <i class="fa fa-chevron-right"></i></h5></a>
+          </div>
+          <!--/.Card content-->
 
-    		<div class="card-block">
-      		<h4 class="card-title"><%= food_item.name %></h4>
-          <p class="card-text"><%= truncate(food_item.description, :length => 100) %></p>
-    		</div>
-
-				<div class="card-footer">
-          <small class="text-muted"><%= number_to_currency food_item.price %> (<%= food_item.section%>)</small>
-    		</div>
-  		</a>
-
-	  <% end %>
-	</div>
-  <br>
+          <div class="card-footer">
+            <p class="card-text"><small class="text-muted"><%= number_to_currency food_item.price %> (<%= food_item.section%>)</small></p>
+          </div>
+        </div>
+        <!--/.Card Dark-->
+      <% end %>
+    </div>
+    <br>
+  </body>
 <% end %>
 
