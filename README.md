@@ -6,7 +6,7 @@ Submitted by: **Nguyen Thanh Quan**
 
 Time spent: **32** hours spent in total
 
-URL: **https://qresto-hw1.herokuapp.com/l**
+URL: **https://qresto-homework.herokuapp.com**
 
 ## User Stories
 
