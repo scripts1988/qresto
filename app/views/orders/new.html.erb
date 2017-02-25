@@ -9,6 +9,12 @@
   <div class="form-group">
     <%= f.label :quantity %>
     <%= f.number_field :quantity, class: "form-control" %>
+    <%= f.label :customer_name %>
+    <%= f.text_field :customer_name, class: "form-control" %>
+    <%= f.label :customer_address %>
+    <%= f.text_field :customer_addr, class: "form-control" %>
+    <%= f.label :phone_number %>
+    <%= f.text_field :customer_phone_number, class: "form-control" %>
   </div>
   <%= f.submit nil, class: "btn btn-primaryy" %>
 <% end %>
