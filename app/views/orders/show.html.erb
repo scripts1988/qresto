@@ -1,0 +1,73 @@
+<head>
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+
+
+  th {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<% if notice != '' %>
+  <% if notice %>
+    <div class="alert alert-success"><%= notice %></div>
+  <% end %>
+<% end %>
+
+<h2 style="color: rgb(0, 127, 255)">Order details</h2>
+
+<table>
+  <tr>
+    <th>No</th>
+    <th>Items</th>
+    <th>Quantity</th>
+    <th>Price</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td><%= @food_item.name %></td>
+    <td><%= @order.quantity %></td>
+    <td><%= @food_item.price %> </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Delivery service</td>
+    <td>1</td>
+    <td>20000</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><strong>Total</strong></td>
+    <td></td>
+    <td><strong><%= @order.total %></strong></td>
+  </tr>
+</table>
+
+<br>
+<h5> <strong style="color: #800080">Name:</strong> <%= @order.customer_name %></h5>
+<h5> <strong style="color: #800080">Phone:</strong> <%= @order.customer_phone_number %> </h5>
+<h5> <strong style="color: #800080">Address:</strong> <%= @order.customer_addr %> </h5>
+<h5> <strong style="color: #800080">Order at:</strong>
+  <% if @order_at %>
+    <%= @order_at %>
+  <% else %>
+    <%= @order.created_at %>
+  <% end %>
+</h5>
+</div>
+</body>
